@@ -99,10 +99,12 @@ exports.venmo = async (event, context) => {
         const file = await fs.readFile('service.json');
         const credentials = JSON.parse(file);
 
-        admin.initializeApp({
-            credential: admin.credential.cert(credentials),
-            databaseURL: "https://quickstart-1569723397848.firebaseio.com"
-        });
+        if (admin.apps.length === 0) {
+            admin.initializeApp({
+                credential: admin.credential.cert(credentials),
+                databaseURL: "https://quickstart-1569723397848.firebaseio.com"
+            });
+        }
 
         const db = admin.firestore();
 
@@ -153,9 +155,9 @@ async function parseMessage(messageId, gmail) {
     }
 }
 
-// exports.venmo({
-//     // data: JSON.stringify(obj)
-// });
+exports.venmo({
+    // data: JSON.stringify(obj)
+});
 
 // exports.subscribe({
 //     // data: JSON.stringify(obj)
