@@ -153,9 +153,9 @@ async function parseMessage(messageId, gmail) {
     }
 }
 
-exports.venmo({
-    // data: JSON.stringify(obj)
-});
+// exports.venmo({
+//     // data: JSON.stringify(obj)
+// });
 
 // exports.subscribe({
 //     // data: JSON.stringify(obj)
